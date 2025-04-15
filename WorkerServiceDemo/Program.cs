@@ -1,13 +1,11 @@
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using WorkerServiceDemo;
 using WorkerServiceDemo.Services;
 
 var builder = Host.CreateApplicationBuilder(args);
-builder.ConfigureServices((hostContext, services) =>
-    {
-        services.AddHostedService<Worker>();
-        services.AddSingleton<IJobProcessor, JobProcessor>();
-    });
 
-var host = builder.Build();
-host.Run();
+// Register services
+builder.Services.AddHostedService<Worker>();
+builder.Services.AddSingleton<IJobProcessor, JobProcessor>();
+
+var app = builder.Build();
+app.Run();

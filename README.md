@@ -20,3 +20,6 @@ Resources generated with ChatGPT:
 
 2. [Second Talk](gpt-2.md)
      - [Followup with project](gpt-2.1.md)
+
+Razor Page test:
+![image](https://i.imgur.com/gzUueJI.png)

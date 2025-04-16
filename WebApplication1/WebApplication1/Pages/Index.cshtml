@@ -1,10 +1,103 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "BXF Service Configuration";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="max-w-5xl mx-auto bg-white p-6 rounded-2xl shadow-xl border border-gray-200 mt-8">
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">BXF Service Configuration</h1>
+
+    <form>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Crispin Connection Settings -->
+            <div>
+                <h2 class="text-lg font-semibold text-gray-700 mb-2">Crispin Connection</h2>
+                <label class="block text-sm text-gray-600">IP Address</label>
+                <input type="text" class="form-control mb-3" placeholder="192.168.0.1" />
+
+                <label class="block text-sm text-gray-600">Port</label>
+                <input type="text" class="form-control" placeholder="5000" />
+            </div>
+
+            <!-- Assetbase Configuration -->
+            <div>
+                <h2 class="text-lg font-semibold text-gray-700 mb-2">Assetbase Configuration</h2>
+                <label class="block text-sm text-gray-600">DSN</label>
+                <input type="text" class="form-control mb-3" />
+
+                <label class="block text-sm text-gray-600">Login</label>
+                <input type="text" class="form-control mb-3" />
+
+                <label class="block text-sm text-gray-600">Password</label>
+                <input type="password" class="form-control" />
+            </div>
+
+            <!-- Logging -->
+            <div>
+                <h2 class="text-lg font-semibold text-gray-700 mb-2">Logging</h2>
+                <label class="block text-sm text-gray-600">Log Path</label>
+                <div class="flex gap-2 mb-3">
+                    <input type="text" class="form-control" />
+                    <button class="btn btn-outline-secondary">Browse</button>
+                </div>
+
+                <label class="block text-sm text-gray-600">Log Level</label>
+                <select class="form-select">
+                    <option>Debug</option>
+                    <option>Info</option>
+                    <option>Warning</option>
+                    <option>Error</option>
+                </select>
+            </div>
+
+            <!-- Traffic System -->
+            <div>
+                <h2 class="text-lg font-semibold text-gray-700 mb-2">Traffic System</h2>
+                <label class="block text-sm text-gray-600">Company</label>
+                <select class="form-select mb-3">
+                    <option>Company A</option>
+                    <option>Company B</option>
+                </select>
+
+                <label class="block text-sm text-gray-600">Web Service</label>
+                <input type="text" class="form-control mb-3" />
+
+                <div class="form-check mb-1">
+                    <input class="form-check-input" type="checkbox" id="print_msgs" />
+                    <label class="form-check-label" for="print_msgs">Print received messages</label>
+                </div>
+                <div class="form-check mb-1">
+                    <input class="form-check-input" type="checkbox" id="report_asrun" />
+                    <label class="form-check-label" for="report_asrun">Report AsRun</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="report_med" />
+                    <label class="form-check-label" for="report_med">Report Media Updates</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Channel Configuration -->
+        <div class="mt-6">
+            <h2 class="text-lg font-semibold text-gray-700 mb-2">Channel Configuration</h2>
+            <p class="text-sm text-gray-500 mb-3">
+                Add/Configure the channels for use with the BXF service. The channel number should match the number specified in the BXF message.
+            </p>
+
+            <div class="flex gap-2 mb-3">
+                <button class="btn btn-outline-primary">Add Channel</button>
+                <button class="btn btn-outline-secondary">Configure Channel</button>
+                <button class="btn btn-outline-danger">Remove Channel</button>
+            </div>
+
+            <div class="border rounded-lg p-4 text-gray-500 bg-gray-50">
+                <em>Channel list placeholder</em>
+            </div>
+        </div>
+
+        <div class="flex justify-end mt-8 gap-4">
+            <button type="button" class="btn btn-secondary">Cancel</button>
+            <button type="submit" class="btn btn-primary">OK</button>
+        </div>
+    </form>
 </div>
